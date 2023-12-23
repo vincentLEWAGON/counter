@@ -1,8 +1,8 @@
-<% simple_form_for @organisation do |o|%>
+<%= simple_form_for ([current_user, @organisation]) do |o|%>
 <%= o.input :name %>
-<%= o.input :description %>
 <%= o.input :address %>
 <%= o.input :postal_code %>
 <%= o.input :city %>
 <%= o.hidden_field :user_id, value: current_user.id %>
+<%= o.button :submit %>
 <% end %>

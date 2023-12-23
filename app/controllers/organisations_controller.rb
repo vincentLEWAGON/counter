@@ -1,6 +1,7 @@
 class OrganisationsController < ApplicationController
   def index
-    @organisations = Organisation.all
+    @organisations = current_user.organisations
+    @organisation = Organisation.new
   end
 
   def show
@@ -11,7 +12,7 @@ class OrganisationsController < ApplicationController
   end
 
   def create
-    @organisation = Organisation.new(name: params[:name], address: params[:address], postal_code: params[:postal_code], city: params[:city])
+    @organisation = Organisation.new(organisation_params)
     if @organisation.save
       redirect_to organisation_path(@organisation.id), notice: 'Organisation créée'
     else
@@ -27,4 +28,11 @@ class OrganisationsController < ApplicationController
 
   def destroy
   end
+
+  private
+  def organisation_params
+    params.require(:organisation).permit(:name, :address, :postal_code, :city)
+  end
+
+
 end

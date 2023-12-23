@@ -1,9 +1,8 @@
-<h1>Organisations#index</h1>
-<p>Find me in app/views/organisations/index.html.erb</p>
+<h1>Organisations</h1>
 
 <% @organisations.each do |o|%>
-  <%= link_to o.name, organisation_path %>
+  <%= link_to o.name, user_organisation_path %>
 <% end %>
 
 
-<%= render form%>
+<%= render 'form' %>

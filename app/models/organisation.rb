@@ -1,5 +1,5 @@
 class Organisation < ApplicationRecord
-  has_many :connexions, dependent: :destroy
   has_many :events, through: :connexions
+  has_many :users, through: :connexions
   validates :name, presence: true
 end

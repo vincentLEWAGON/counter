@@ -1,0 +1,8 @@
+<!-- app/views/organizations/_form.html.erb -->
+<%= form_with(model: @organization, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit %>
+<% end %>
+

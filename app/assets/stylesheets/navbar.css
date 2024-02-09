@@ -1,0 +1,45 @@
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 90%;
+    height: 10vh;
+    font-family: 'Baton', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999
+  }
+
+  .navbar a {
+    font-family: 'Baton', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white
+  }
+
+  .navbar-image {
+    width: 70px;
+    height: auto;
+  }
+
+  p:hover {
+    color: #8b0c0c;
+  }
+
+  .logout-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+  }
+  .logout-button:hover {
+    color: #8b0c0c;
+    font-weight: bold;
+  }
+}

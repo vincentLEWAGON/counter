@@ -1,0 +1,33 @@
+<%= form_with(model: @event, local: true) do |form| %>
+  <div>
+    <%= form.label :organization_id, "Select Organization" %>
+    <%= form.collection_select :organization_id, current_user.organizations, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+
+    <%= form.label :start_time %>
+    <%= form.datetime_field :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_gauge %>
+    <%= form.number_field :max_gauge %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

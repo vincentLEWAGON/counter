@@ -24,7 +24,7 @@
     height: 100%;
     width: 100%;
     padding-top: 20vh;
-    background-color: rgb(64, 136, 64);
+    background-color: #57D53B;
     font-family: 'Baton', sans-serif;
     color: white;
     font-size: 20px;
@@ -79,11 +79,11 @@
     cursor: pointer;
     padding: 0;
     margin: 5px;
-    color: green;
+    color: #57D53B;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   }
 
   .d {
-    color: red;
+    color: #E3170A;
   }
   }

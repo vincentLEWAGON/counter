@@ -18,18 +18,22 @@
 
  @import "font-awesome";
 
- @media only screen and (max-width: 600px) {
   body {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     padding-top: 20vh;
     background-color: #57D53B;
     font-family: 'Baton', sans-serif;
+    text-decoration: none;
     color: white;
+    font-weight: bold;
     font-size: 20px;
     font-weight: bold;
     }
+
     /* .organizations_container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
@@ -38,37 +42,39 @@
 
   .container {
     width: 90%;
-    margin: auto;
   }
 
-  /*.home-image {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+  .home-image {
     display: block;
     margin: auto;
-    width: 120%;
-    height: auto;
-  }*/
+    margin-top: 50%;
+    width: 80%;
+    height: 100%;
+  }
 
   .button-container {
     display: flex;
     justify-content:center;
   }
-  a {
+  a, p, span, h1, h2, h3, h4, h5, h6, li {
+    font-family: 'Baton', sans-serif;
     text-decoration: none;
-    color: inherit;
     color: white;
+    font-weight: bold;
   }
 
   a:hover {
     color: #8b0c0c;
-    font-weight: bold;
   }
+
   #audience-count {
     font-size: 40px;
     font-weight: lighter;
     color: #faf9f9;
+  }
+
+  button {
+    cursor: pointer;
   }
 
   .icon-button {
@@ -76,7 +82,6 @@
     border: none;
     width: 45%;
     font-size: 8em;
-    cursor: pointer;
     padding: 0;
     margin: 5px;
     color: #57D53B;
@@ -85,5 +90,4 @@
 
   .d {
     color: #E3170A;
-  }
   }

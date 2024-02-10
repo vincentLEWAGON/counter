@@ -1,12 +1,8 @@
 
 
-<p>
+<H1>
   <%= @event.name %>
-</p>
-
-<p>
-  <%= @event.description %>
-</p>
+</H1>
 
 <p>
   <%= @event.start_date.strftime("%A, %d %B %Y") %>
@@ -15,6 +11,10 @@
 <p>
   <%= @event.start_time.strftime("%H:%M") %>
 </p>
+
+<div data-controller="clock">
+  <span data-clock-target="time"></span>
+</div>
 
 <p>
   <strong>Jauge:</strong>
@@ -46,6 +46,11 @@ document.getElementById('increment-button').addEventListener('click', function(e
   .then(response => response.json())
   .then(data => {
     document.getElementById('audience-count').innerText = data.audience;
+    if (data.audience <= 0) {
+      document.getElementById('decrement-button').style.display = 'none';
+    } else {
+      document.getElementById('decrement-button').style.display = 'block';
+    }
   });
 });
 document.getElementById('decrement-button').addEventListener('click', function(e) {
@@ -58,6 +63,11 @@ document.getElementById('decrement-button').addEventListener('click', function(e
   .then(response => response.json())
   .then(data => {
     document.getElementById('audience-count').innerText = data.audience;
+    if (data.audience <= 0) {
+      document.getElementById('decrement-button').style.display = 'none';
+    } else {
+      document.getElementById('decrement-button').style.display = 'block';
+    }
   });
 });
 </script>

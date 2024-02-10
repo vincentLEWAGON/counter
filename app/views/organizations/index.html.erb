@@ -1,6 +1,3 @@
-<h1>Mes organisations</h1>
-
-
 <div class="organizations_container">
   <% @organizations.each do |organization| %>
     <%= button_to organization.name,
@@ -8,9 +5,7 @@
     method: :get,
     class: "organization-card" %>
   <% end %>
-  <div class="organization-card">
-      <%= link_to new_organization_path do %>
-      <i class="fas fa-plus"></i>
-      <% end %>
-  </div>
+  <%= button_to new_organization_path, class: "organization-card" do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
 </div>

@@ -3,4 +3,5 @@ import { Controller } from '@hotwired/stimulus';
 import "controllers"
 import '@fortawesome/fontawesome-free/js/all';
 
-require("@rails/ujs").start()
+import Rails from "@rails/ujs";
+Rails.start();

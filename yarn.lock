@@ -289,6 +289,22 @@
     "@babel/helper-create-class-features-plugin" "^7.18.6"
     "@babel/helper-plugin-utils" "^7.18.6"
 
+"@babel/plugin-proposal-logical-assignment-operators@^7.20.7":
+  "integrity" "sha512-y7C7cZgpMIjWlKE5T7eJwp+tnRYM89HmRvWM5EQuB5BoHEONjmQ8lSNmBUwOyy/GFRsohJED51YBF79hE1djug=="
+  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-logical-assignment-operators/-/plugin-proposal-logical-assignment-operators-7.20.7.tgz"
+  "version" "7.20.7"
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.20.2"
+    "@babel/plugin-syntax-logical-assignment-operators" "^7.10.4"
+
+"@babel/plugin-proposal-nullish-coalescing-operator@^7.18.6":
+  "integrity" "sha512-wQxQzxYeJqHcfppzBDnm1yAY0jSRkUXR2z8RePZYrKwMKgMlE8+Z6LUno+bd6LvbGh8Gltvy74+9pIYkr+XkKA=="
+  "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-nullish-coalescing-operator/-/plugin-proposal-nullish-coalescing-operator-7.18.6.tgz"
+  "version" "7.18.6"
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.18.6"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
+
 "@babel/plugin-proposal-object-rest-spread@^7.14.7":
   "integrity" "sha512-d2S98yCiLxDVmBmE8UjGcfPvNEUbA1U5q5WxaWFUGRzJSVAZqm5W6MbPct0jxnegUZ0niLeNX+IOzEs7wYg9Dg=="
   "resolved" "https://registry.npmjs.org/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.20.7.tgz"
@@ -1015,7 +1031,7 @@
   "resolved" "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   "version" "1.1.3"
 
-"@hotwired/stimulus-webpack-helpers@^1.0.1":
+"@hotwired/stimulus-webpack-helpers@^1.0.0", "@hotwired/stimulus-webpack-helpers@^1.0.1":
   "integrity" "sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ=="
   "resolved" "https://registry.npmjs.org/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz"
   "version" "1.0.1"
@@ -1097,6 +1113,11 @@
 "@rails/actioncable@^7.0":
   "integrity" "sha512-ojNvnoZtPN0pYvVFtlO7dyEN9Oml1B6IDM+whGKVak69MMYW99lC2NOWXWeE3bmwEydbP/nn6ERcpfjHVjYQjA=="
   "resolved" "https://registry.npmjs.org/@rails/actioncable/-/actioncable-7.1.3.tgz"
+  "version" "7.1.3"
+
+"@rails/ujs@^7.1.3":
+  "integrity" "sha512-FxtgKNvvIonoBE1TK7U10VMf6CYvzq8SIZ1XZ1Q8zcn/BEXzPzid3zC9qFiojuI5WXVwWhO8GFqApq0stD+OqQ=="
+  "resolved" "https://registry.npmjs.org/@rails/ujs/-/ujs-7.1.3.tgz"
   "version" "7.1.3"
 
 "@rails/webpacker@5.4.4":
@@ -4160,6 +4181,11 @@
     "merge-stream" "^2.0.0"
     "supports-color" "^7.0.0"
 
+"jquery@^3.7.1":
+  "integrity" "sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
+  "version" "3.7.1"
+
 "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -6646,6 +6672,14 @@
   "integrity" "sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ=="
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
   "version" "2.0.1"
+
+"stimulus@^3.2.2":
+  "integrity" "sha512-sEGK0ofeMuW+B2oPLTigCqxl47P9vRfZxeqzY5Hk1u0QPWS8DZhW+VOEEyngtzdHM+MutXKGBT8BkUKoA0060Q=="
+  "resolved" "https://registry.npmjs.org/stimulus/-/stimulus-3.2.2.tgz"
+  "version" "3.2.2"
+  dependencies:
+    "@hotwired/stimulus" "^3.2.2"
+    "@hotwired/stimulus-webpack-helpers" "^1.0.0"
 
 "stream-browserify@^2.0.1":
   "integrity" "sha512-nX6hmklHs/gr2FuxYDltq8fJA1GDlxKQCz8O/IM4atRqBH8OORmBNgfvW5gG10GT/qQ9u0CzIvr2X5Pkt6ntqg=="

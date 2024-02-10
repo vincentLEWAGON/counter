@@ -3,22 +3,21 @@
   <a href="<%= root_path %>">
     <%= image_tag("avatar_mouton.png", class: "navbar-image mr-3", alt: "Sheep") %>
   </a>
-  <%= link_to "Vince'app Sheeeeeepcounter", root_path %>
 </div>
 
   <% if user_signed_in? %>
     <div>
       <div>
-        <%= link_to 'Organizations', organizations_path %>
+        <%= link_to 'Organisations', organizations_path %>
       </div>
       <div>
-        <%= link_to 'Events', organization_events_path(current_user.organizations) %>
+        <%= link_to 'Evénements', organization_events_path(current_user.organizations) %>
       </div>
     </div>
     <div>
-      <%= button_to 'Logout', destroy_user_session_path,
+      <%= button_to 'Déconnexion', destroy_user_session_path,
       method: :delete,
-      class: 'logout-button' %>
+      class: 'button-text' %>
     </div>
 
   <% else %>

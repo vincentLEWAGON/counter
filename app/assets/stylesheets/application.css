@@ -1,15 +1,89 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
+
+    /* Insérez vos styles ici */
+    /*
+    * This is a manifest file that'll be compiled into application.css, which will include all the files
+    * listed below.
+    *
+    * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+    * vendor/assets/stylesheets directory can be referenced here using a relative path.
+    *
+    * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+    * compiled file so the styles you add here take precedence over styles defined in any other CSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+
+ @media only screen and (max-width: 600px) {
+  body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding-top: 20vh;
+    background-color: rgb(64, 136, 64);
+    font-family: 'Baton', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    }
+    /* .organizations_container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 5px;
+    } */
+
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+
+  /*.home-image {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: block;
+    margin: auto;
+    width: 120%;
+    height: auto;
+  }*/
+
+  .button-container {
+    display: flex;
+    justify-content:center;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+  }
+
+  a:hover {
+    color: #8b0c0c;
+    font-weight: bold;
+  }
+  #audience-count {
+    font-size: 40px;
+    font-weight: lighter;
+    color: #faf9f9;
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    width: 45%;
+    font-size: 8em;
+    cursor: pointer;
+    padding: 0;
+    margin: 5px;
+    color: green;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
+
+  .d {
+    color: red;
+  }
+  }

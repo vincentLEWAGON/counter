@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_07_211111) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_08_194632) do
+  create_table "entry_exits", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.string "action"
+    t.datetime "timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_entry_exits_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -20,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_211111) do
     t.integer "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "audience"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
@@ -46,10 +56,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_211111) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "entry_exits", "events"
   add_foreign_key "events", "organizations"
   add_foreign_key "memberships", "organizations"
   add_foreign_key "memberships", "users"

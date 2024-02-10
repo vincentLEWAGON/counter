@@ -1,9 +1,34 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+Event.destroy_all
+Organization.destroy_all
+
+user1 = User.create(email: 'milo@free.fr', password: 'password')
+user2 = User.create(email: 'maia@free.fr', password: 'password')
+
+User.all.each do |user|
+  2.times do |i|
+    @organization = Organization.create!(name: "theatre#{i+1} de #{user.email}")
+    Membership.create(user: user, organization: @organization)
+  end
+  puts "organisations created"
+end
+
+Organization.all.each do |organization|
+  Event.create!(
+    name: "événement1 de #{organization.name}",
+    description: "description de l'événement1 de #{organization.name}",
+    start_date: Date.today - 1.day,
+    start_time: DateTime.now.change({ hour: 20, min: 0, sec: 0 }),
+    max_gauge: rand(10..1000),
+    organization: organization
+  )
+  Event.create!(
+    name: "événement2 de #{organization.name}",
+    description: "description de l'événement2 de #{organization.name}",
+    start_date: Date.today + 1.day,
+    start_time: DateTime.now.change({ hour: 20, min: 0, sec: 0 }),
+    max_gauge: rand(10..1000),
+    organization: organization
+  )
+  puts "events created"
+end

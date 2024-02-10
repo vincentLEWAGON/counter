@@ -1,0 +1,63 @@
+
+
+<p>
+  <%= @event.name %>
+</p>
+
+<p>
+  <%= @event.description %>
+</p>
+
+<p>
+  <%= @event.start_date.strftime("%A, %d %B %Y") %>
+</p>
+
+<p>
+  <%= @event.start_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Jauge:</strong>
+  <%= @event.max_gauge %>
+</p>
+
+<div id="audience-count"></div>
+
+<div class="button-container">
+  <button id="increment-button" data-url="<%= increment_audience_organization_event_path(@event) %>" class="icon-button">
+    <i class="fas fa-plus"></i>
+  </button>
+  <button id="decrement-button" data-url="<%= decrement_audience_organization_event_path(@event) %>" class="icon-button d">
+    <i class="fas fa-minus"></i>
+  </button>
+</div>
+
+
+
+
+<script>
+document.getElementById('increment-button').addEventListener('click', function(e) {
+  e.preventDefault();
+  fetch(this.dataset.url, {
+    method: 'POST',
+    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
+    credentials: 'same-origin'
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('audience-count').innerText = data.audience;
+  });
+});
+document.getElementById('decrement-button').addEventListener('click', function(e) {
+  e.preventDefault();
+  fetch(this.dataset.url, {
+    method: 'POST',
+    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
+    credentials: 'same-origin'
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('audience-count').innerText = data.audience;
+  });
+});
+</script>

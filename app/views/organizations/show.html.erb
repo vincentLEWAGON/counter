@@ -3,11 +3,12 @@
 <h1>Organization Details</h1>
 
 <p>Name: <%= @organization.name %></p>
-<p>Description: <%= @organization.description %></p>
-<p>Location: <%= @organization.location %></p>
+
+
 
 <%= link_to 'Edit', edit_organization_path(@organization) %>
-
+<%= link_to 'Voir les événements', organization_events_path(@organization) %>
+<%= link_to 'Créer un nouvel événement', new_organization_event_path(current_user.organizations) %>
 
 <%= button_to 'Delete', organization_path(@organization),
               method: :delete,

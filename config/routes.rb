@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   root 'users#home'
 
   resources :organizations do
-    resources :events
+    resources :events do
+      member do
+        post :increment_audience
+        post :decrement_audience
+      end
+    end
   end
+  resources :events, only: [:new, :create]
 end

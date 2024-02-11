@@ -16,58 +16,18 @@
   <span data-clock-target="time"></span>
 </div>
 
-<p>
-  <strong>Jauge:</strong>
-  <%= @event.max_gauge %>
-</p>
-
-<div id="audience-count"></div>
-
-<div class="button-container">
-  <button id="increment-button" data-url="<%= increment_audience_organization_event_path(@event) %>" class="icon-button">
-    <i class="fas fa-plus"></i>
-  </button>
-  <button id="decrement-button" data-url="<%= decrement_audience_organization_event_path(@event) %>" class="icon-button d">
-    <i class="fas fa-minus"></i>
-  </button>
+<strong>Jauge:</strong>
+<div data-controller="background-color">
+  <span data-background-color-target="maxGauge"><%= @event.max_gauge %></span>
+  <div id="audience-count" data-background-color-target="audienceCount"></div>
 </div>
 
-
-
-
-<script>
-document.getElementById('increment-button').addEventListener('click', function(e) {
-  e.preventDefault();
-  fetch(this.dataset.url, {
-    method: 'POST',
-    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
-    credentials: 'same-origin'
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('audience-count').innerText = data.audience;
-    if (data.audience <= 0) {
-      document.getElementById('decrement-button').style.display = 'none';
-    } else {
-      document.getElementById('decrement-button').style.display = 'block';
-    }
-  });
-});
-document.getElementById('decrement-button').addEventListener('click', function(e) {
-  e.preventDefault();
-  fetch(this.dataset.url, {
-    method: 'POST',
-    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
-    credentials: 'same-origin'
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('audience-count').innerText = data.audience;
-    if (data.audience <= 0) {
-      document.getElementById('decrement-button').style.display = 'none';
-    } else {
-      document.getElementById('decrement-button').style.display = 'block';
-    }
-  });
-});
-</script>
+<div data-controller="hide-button" class="button-container">
+ <button data-action="click->hide-button#increment" data-hide-button-target="increment" data-url="<%= increment_audience_organization_event_path(@event) %>" class="icon-button">
+  <i class="fas fa-plus"></i>
+</button>
+  <button data-action="click->hide-button#decrement" data-hide-button-target="decrement" data-url="<%= decrement_audience_organization_event_path(@event) %>" class="icon-button d">
+    <i class="fas fa-minus"></i>
+  </button>
+  <div data-hide-button-target="audience"></div>
+</div>

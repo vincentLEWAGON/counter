@@ -1,8 +1,22 @@
 <div class="form">
   <%= form_with(model: @event, local: true) do |form| %>
-    <div>
+    <% if current_user.organizations.any? %>
+      <div class="field">
+        <%= form.label :organization_id %>
+        <% selected_organization = current_user.organizations.find_by(id: params[:organization_id]) %>
+        <%= form.collection_select(:organization_id, current_user.organizations, :id, :name, selected: selected_organization&.id, prompt: 'Sélectionnez une organisation') %>
+      </div>
+    <% else %>
+      <div class="field">
+        <%= form.label :new_organization %>
+        <%= form.text_field :new_organization, placeholder: 'Entrez le nom de l organisation' %>
+      </div>
+    <% end %>
+
+    <%# <div>
       <%= form.label :organization_id, "Organisation" %>
-<%= form.collection_select :organization_id, current_user.organizations, :id, :name, {}, {class: "collection-field"} %>    </div>
+      <%# <%= form.collection_select :organization_id, current_user.organizations, :id, :name, {}, {class: "collection-field"} %>
+    <%# </div> %>
 
     <div>
       <%= form.label :'nom' %>
@@ -31,4 +45,3 @@
   <% end %>
 
 </div>
-  <%= link_to 'Back', organization_events_path(current_user.organizations) %>

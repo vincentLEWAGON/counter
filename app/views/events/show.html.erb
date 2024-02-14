@@ -3,31 +3,29 @@
 <H1>
   <%= @event.name %>
 </H1>
-
 <p>
   <%= @event.start_date.strftime("%A, %d %B %Y") %>
 </p>
-
 <p>
   <%= @event.start_time.strftime("%H:%M") %>
 </p>
 
-<div data-controller="clock">
-  <span data-clock-target="time"></span>
-</div>
-
 <strong>Jauge:</strong>
-<div data-controller="background-color">
-  <span data-background-color-target="maxGauge"><%= @event.max_gauge %></span>
-  <div id="audience-count" data-background-color-target="audienceCount"></div>
-</div>
+<div data-controller="hide-button">
+  <span data-hide-button-target="max_gauge"><%= @event.max_gauge %></span>
+  <div id="audiencecount" data-hide-button-target="audience_count">0
+  </div>
 
-<div data-controller="hide-button" class="button-container">
- <button data-action="click->hide-button#increment" data-hide-button-target="increment" data-url="<%= increment_audience_organization_event_path(@event) %>" class="icon-button">
-  <i class="fas fa-plus"></i>
-</button>
-  <button data-action="click->hide-button#decrement" data-hide-button-target="decrement" data-url="<%= decrement_audience_organization_event_path(@event) %>" class="icon-button d">
-    <i class="fas fa-minus"></i>
-  </button>
-  <div data-hide-button-target="audience"></div>
+  <div class="button-container">
+    <button class="icon-button"
+    data-action="click->hide-button#increment"
+     data-hide-button-target="increment">
+      <i class="fas fa-plus"></i>
+    </button>
+    <button class="icon-button d"
+      data-action="click->hide-button#decrement"
+      data-hide-button-target="decrement">
+      <i class="fas fa-minus"></i>
+    </button>
+  </div>
 </div>

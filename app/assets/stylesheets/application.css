@@ -92,13 +92,13 @@
     color:#349e1c;
     text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
     position: fixed;
-    top: 50%; /* Ajustez ces valeurs en fonction de vos besoins */
+    bottom: 20%; /* Ajustez ces valeurs en fonction de vos besoins */
     left: 10%;
 }
 
   .d {
     color: #E3170A;
     position: fixed;
-    top: 48%; /* Ajustez ces valeurs en fonction de vos besoins */
+    bottom: 20%; /* Ajustez ces valeurs en fonction de vos besoins */
     right: 10px;
   }

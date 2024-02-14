@@ -1,38 +1,43 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["increment", "decrement", "audience"];
+  static targets = [ "audience_count", "decrement", "increment", "max_gauge" ];
+
 
   connect() {
-    this.incrementTarget.addEventListener('click', (e) => this.increment(e));
-    this.decrementTarget.addEventListener('click', (e) => this.decrement(e));
     console.log("hide_button_controller.js is loaded");
   }
 
-  increment(e) {
-    e.preventDefault();
-    this.sendRequest(this.incrementTarget.dataset.url);
+  increment() {
+    const audienceCount = parseInt(this.audience_countTarget.textContent) + 1;
+    const maxGauge = parseInt(this.max_gaugeTarget.textContent);
+    this.audience_countTarget.textContent = audienceCount;
+    this.decrementTarget.style.display = 'block';
+
+    if (audienceCount > maxGauge) {
+      document.body.style.backgroundColor = '#E3170A';
+    }
+
+    if (navigator.vibrate) {
+      navigator.vibrate(200);
+    }
   }
 
-  decrement(e) {
-    e.preventDefault();
-    this.sendRequest(this.decrementTarget.dataset.url);
+  decrement() {
+    const audienceCount = parseInt(this.audience_countTarget.textContent) - 1;
+    const maxGauge = parseInt(this.max_gaugeTarget.textContent);
+    if (audienceCount == 0) {
+      this.decrementTarget.style.display = 'none';
+    }
+    this.audience_countTarget.textContent = audienceCount;
+
+    if (audienceCount < maxGauge) {
+      document.body.style.backgroundColor = '#57D53B'; // green
+    }
+
+    if (navigator.vibrate) {
+      navigator.vibrate(200);
+    }
   }
 
-  sendRequest(url) {
-    fetch(url, {
-      method: 'POST',
-      headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
-      credentials: 'same-origin'
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.audienceTarget.innerText = data.audience;
-      if (data.audience <= 0) {
-        this.decrementTarget.style.display = 'none';
-      } else {
-        this.decrementTarget.style.display = 'block';
-      }
-    });
-  }
-}
+};
